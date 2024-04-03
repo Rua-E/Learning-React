@@ -1,6 +1,6 @@
 import './Todo.css'
 
-function Todo({title, paragraph}) {
+function Todo({title, paragraph, onTodoDelete}) {
     function deleteTodo(id) {
         console.log(id ,title.toUpperCase())
     }
@@ -9,7 +9,8 @@ function Todo({title, paragraph}) {
         <div className='todo'>
             <p> {title} </p>
             <span>{paragraph} </span>
-            <button onClick={() => deleteTodo(1)} >Delete</button>
+            <button 
+                onClick={onTodoDelete} >Delete</button>
         </div>
     )
 }
