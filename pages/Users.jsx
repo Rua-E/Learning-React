@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 
 function Users() {
     const { username } = useParams()
-    // useEffect (() = {
-    // }, [])
+    useEffect (() => {
+        // fetch('url with ${username}')
+    }, [])
     return (
         <>
             <h1>{username}</h1>
