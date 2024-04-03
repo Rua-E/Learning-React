@@ -1,9 +1,17 @@
 import './App.css';
-import Todo from './components/Todo.jsx'
-import Title from './components/Title.jsx'
-import Modal from './components/Modal.jsx'
+import Todo from './components/Todo.jsx';
+import Title from './components/Title.jsx';
+import Modal from './components/Modal.jsx';
+import Counter from './components/Counter.jsx';
+import React, {useState} from 'react';
 
 function App() {
+  return <Counter />
+  
+  const [showModal, setShowModal] = useState(false)
+  // setShowModal(false)
+  // let isModalOpen = true;
+
   return (
     <div>
       <Title />
@@ -11,7 +19,7 @@ function App() {
         <input type="text" onChange={(event) => {
           console.log(event.target.value)
         }}></input>
-        <button>Add todo</button>
+        <button onClick={() => setShowModal(true)}>Add todo</button>
       </div>
       <div className='todo__wrapper'>
         <Todo 
@@ -27,7 +35,7 @@ function App() {
           paragraph="Apply to 100 jobs"
         />
       </div>
-      <Modal title="Are you sure you want to delete?" />
+      {showModal && <Modal title="Are you sure you want to delete?" /> }
     </div>
   );
 }
